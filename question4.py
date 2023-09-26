@@ -8,7 +8,7 @@ class Person:
         return f"hello {self.name}"
 
     def is_adult(self):
-        if self.age >= '18':
+        if self.__age >= '18':
             return True
         else:
             return False
@@ -18,18 +18,18 @@ class Person:
 
 
 class Student(Person):
-    def __int__(self, name, age, gender, student_id, course):
+    def __init__(self, name, age, gender, student_id, course):
         Person.__init__(self, name, age, gender)
         self.student_id = student_id
         self.course = course
 
     def display_student_info(self):
-        return f"{self.name} with student id {self.student_id} is studying in" \
+        return f"{self.name} with student id {self.student_id} is studying in " \
                f"{self.course}"
 
 
 class Teacher(Person):
-    def __int__(self, name, age, gender, teacher_id, subject):
+    def __init__(self, name, age, gender, teacher_id, subject):
         Person.__init__(self, name, age, gender)
         self.teacher_id = teacher_id
         self.subject = subject
@@ -42,4 +42,8 @@ Arun = Person("Arun", "25", "Male")
 print(Arun.say_hello())
 print(Arun.get__age())
 
-Ishant = Teacher("Ishant", "32", "Male", "101", "Python")
+Arun = Student("reyhan", "32", "Male", "101", "fsdm")
+print(Arun.display_student_info())
+
+Arun = Teacher("rakesh", "32", "Male", "111", "Python")
+print(Arun.say_hello())
